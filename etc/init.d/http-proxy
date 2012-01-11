@@ -9,7 +9,7 @@ test -x $HTTPPROXY || exit 0
 
 case $1 in
    start)
-      nohup "$HTTOPPROXY" "$DIR/proxy.js" 8080 1>>"$DIR/logs/proxy.log" 2>&1 &
+      nohup "$HTTOPPROXY" "$DIR/proxy.js" 8000 1>>"$DIR/logs/proxy.log" 2>&1 &
       echo $! > "$DIR/pids/proxy.pid";
       ;;
     stop)
