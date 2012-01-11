@@ -1,0 +1,30 @@
+#!/bin/bash
+DIR=/var/www/YOUR_NODE_APP_GOES_HERE
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+NODE_PATH=/usr/local/lib/node_modules
+NODE=/usr/local/bin/node
+
+test -x $NODE || exit 0
+
+function start_app {
+  NODE_ENV=production nohup "$NODE" "$DIR/YOUR_APP_SERVER_FILE.js" 1>>"$DIR/logs/YOUR_APP_NAME.log" 2>&1 &
+  echo $! > "$DIR/pids/YOUR_APP.pid"
+}
+
+function stop_app {
+  kill `cat $DIR/pids/YOUR_APP.pid`
+}
+
+case $1 in
+   start)
+      start_app ;;
+    stop)
+      stop_app ;;
+    restart)
+      stop_app
+      start_app
+      ;;
+    *)
+      echo "usage: YOUR_APP_NAME {start|stop}" ;;
+esac
+exit 0
