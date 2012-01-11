@@ -28,7 +28,7 @@ This is a work in progress! Please let me know if I'm doing anything really stup
 ## Notes:
 You don't want to run node as root in production. Instead, you can run it as a higher port and forward all 8080 traffic to it. This seems a little fucked to me - should be changed to just drop permissions after starting proxy server.
 
-REDIRECT port 80 to 8000
+\# REDIRECT port 80 to 8000
 $IPTABLES -t nat -I PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8000
 
 ## Sources:
