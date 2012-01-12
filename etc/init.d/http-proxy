@@ -1,15 +1,11 @@
 #!/bin/bash
-
-DIR=/var/www/YOUR_APP_NAME_GOES_HERE
+DIR=/var/www/YOUR_APP_NAME
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 NODE_PATH=/usr/local/lib/node_modules
-HTTPPROXY=/usr/local/bin/http-proxy
-
-test -x $HTTPPROXY || exit 0
 
 case $1 in
    start)
-      nohup "$HTTOPPROXY" "$DIR/proxy.js" 8000 1>>"$DIR/logs/proxy.log" 2>&1 &
+      nohup "node" "$DIR/proxy.js" 1>>"$DIR/logs/proxy.log" 2>&1 &
       echo $! > "$DIR/pids/proxy.pid";
       ;;
     stop)
