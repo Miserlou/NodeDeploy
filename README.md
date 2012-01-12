@@ -1,6 +1,6 @@
 # Node Deploy Files
 ## Rich Jones - rich@gun.io
-This is a work in progress! Please let me know if I'm doing anything really stupid here.
+This is a living document! Please let me know if I'm doing anything really stupid here. Patches graciously accepted. [http://gun.io/blog/tutorial-deploy-node-js-server-with-example/](Tutorial form available here.)
 
 ## Our goal:
  * Run a Node-based front end proxy which proxies to a Node app and either Apache or Nginix, depending on the hostname.
